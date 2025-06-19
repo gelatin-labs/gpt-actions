@@ -58,15 +58,3 @@ paths:
                   type: string
       responses:
         '200':
-          description: Note added
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  success:
-                    type: boolean
-                  updated_record:
-                    type: object
-servers:
-  - url: http://localhost:3000
