@@ -1,0 +1,72 @@
+openapi: 3.0.0
+info:
+  title: Gelatin Labs Order API
+  version: 1.0.0
+paths:
+  /get-order:
+    get:
+      operationId: getOrder
+      summary: Get order information by order number
+      parameters:
+        - name: order_number
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Order found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  order_number:
+                    type: string
+                  status:
+                    type: string
+                  received_date:
+                    type: string
+                  rush:
+                    type: boolean
+                  pipeline_prepped:
+                    type: string
+                  pipeline_developed:
+                    type: string
+                  pipeline_scanned:
+                    type: string
+                  scan_team:
+                    type: string
+                  prepping_team:
+                    type: string
+                  tracking_code:
+                    type: string
+  /add-note:
+    post:
+      operationId: addNote
+      summary: Add internal note to order
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                order_number:
+                  type: string
+                note:
+                  type: string
+      responses:
+        '200':
+          description: Note added
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  updated_record:
+                    type: object
+servers:
+  - url: http://localhost:3000
