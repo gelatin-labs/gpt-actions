@@ -3,7 +3,7 @@ info:
   title: Gelatin Labs Order API
   version: 1.0.0
 servers:
-  - url: https://gelatin-api.fly.dev
+  - url: https://gelatin-api-young-forest-414.fly.dev
 paths:
   /get-order:
     get:
